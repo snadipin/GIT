@@ -1,0 +1,73 @@
+[root@shilpakavirayani3 core-java]# touch testGit.txt
+[root@shilpakavirayani3 core-java]# git remote -v
+origin  https://github.com/snadipin/core-java.git (fetch)
+origin  https://github.com/snadipin/core-java.git (push)
+[root@shilpakavirayani3 core-java]# git status
+# On branch MyNewBranch
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#       testGit.txt
+nothing added to commit but untracked files present (use "git add" to track)
+[root@shilpakavirayani3 core-java]# git add .
+[root@shilpakavirayani3 core-java]# git commit -m " 'added testGit.txt file "
+[MyNewBranch 2fd30de]  'added testGit.txt file
+ Committer: SNADIPIN <root@shilpakavirayani3.mylabserver.com>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 testGit.txt
+[root@shilpakavirayani3 core-java]# git status
+# On branch MyNewBranch
+nothing to commit, working directory clean
+[root@shilpakavirayani3 core-java]# git push -u origin myNewBranch
+Username for 'https://github.com': SNADIPIN
+Password for 'https://SNADIPIN@github.com': 
+error: src refspec myNewBranch does not match any.
+error: failed to push some refs to 'https://github.com/snadipin/core-java.git'
+[root@shilpakavirayani3 core-java]# git branch
+* MyNewBranch
+  master
+[root@shilpakavirayani3 core-java]# git push -u origin   MyNewBranch
+Username for 'https://github.com': SNADIPIN
+Password for 'https://SNADIPIN@github.com': 
+Counting objects: 4, done.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 305 bytes | 0 bytes/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/snadipin/core-java.git
+ * [new branch]      MyNewBranch -> MyNewBranch
+Branch MyNewBranch set up to track remote branch MyNewBranch from origin.
+[root@shilpakavirayani3 core-java]# git checkout master
+Switched to branch 'master'
+[root@shilpakavirayani3 core-java]# git merge MyNewBranch
+Updating bffdd9a..2fd30de
+Fast-forward
+ testGit.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 testGit.txt
+[root@shilpakavirayani3 core-java]# git push -u origin  master 
+Username for 'https://github.com': SNADIPIN
+Password for 'https://SNADIPIN@github.com': 
+Total 0 (delta 0), reused 0 (delta 0)
+To https://github.com/snadipin/core-java.git
+   bffdd9a..2fd30de  master -> master
+Branch master set up to track remote branch master from origin.
+[root@shilpakavirayani3 core-java]# git  branch -d MyNewBranch
+Deleted branch MyNewBranch (was 2fd30de).
+[root@shilpakavirayani3 core-java]# git push origin --delete MyNewBranch
+Username for 'https://github.com': SNADIPIN
+Password for 'https://SNADIPIN@github.com': 
+To https://github.com/snadipin/core-java.git
+ - [deleted]         MyNewBranch
+[root@shilpakavirayani3 core-java]# 
